@@ -7,26 +7,13 @@ Determining the top clutch NBA players using logistic regression.
 - clutch_players.R: the R code used to clean the data and perform the logistic regression
 - shot_logs.csv: the uncleaned data set, sourced from Kaggle
 - top50.xlsx: the cleaned data set, consisting of the top 50 NBA players
-
-#### Introduction:
- The National Basketball Association (NBA) was founded in 1946 and has profoundly impacted our modern day society. Each season brings along more excitement and exhilarating plays as we hear the “oohhs and aahhs” coming from the crowd. We have seen players shoot countless numbers of shots in game defining moments that have drastically altered the outcomes of the game. These moments have led analysts and fans to constantly debate on which NBA player is the most “clutch.” The word “clutch” comes with many meanings, but in sports it is defined as “the phenomenon [when] athletes under pressure, usually in the last minutes of a game, summon strength, concentration and whatever else necessary to succeed, to perform well, and perhaps change the outcome of the game”. In the NBA, you either have or don’t have this clutch factor. It is used as a determinant to define how a player performs when the outcome of a game is on the line. Thus for our project, we have taken the shot data from the 2014-2015 NBA season in order to find out which player was the most clutch during that season.
  
 #### Project Purpose:
  The goal of our project was to find out which NBA player had the greatest chance of making a clutch shot during the 2014-2015 season. When starting the project, we wanted to address the questions of who should have the ball in the last minutes of the game, and how exactly we would define “clutch”. **The outcome of this project is designed to help coaches decide on which players should shoot the ball during clutch moments of a game. In doing so, the probabilities of winning the game will be higher.**
 
 #### Hypothesis and Reasoning:
- For our hypothesis, we choose these qualified players that we believed were going to be the most “clutch” in the NBA. The players we chose were Steph Curry, LeBron James, and Tim Duncan. Here are the reasons why we choose each player.
+ For our hypothesis, we choose these qualified players that we believed were going to be the most “clutch” in the NBA. The players we chose were Steph Curry, LeBron James, and Tim Duncan. 
  
-##### *Steph Curry:*
-During the 2014-2015 season, Steph Curry won the Most Valuable Player Award.  He led the Warriors to win a franchise-record 67 games during the season, and the Warriors would go on to win the NBA championship that season. He averaged 23.8 points, 7.7 assists, 2.04 steals and 4.3 rebounds. He also broke his own NBA record by scoring 286 three-pointers. His shot percentages were elite as he shot 48.7% from the field, 44.3% from the three-point range, and a 91.4% from the free throw line. Based on an amazing FGM (field goal made) stat line we hypothesized that he makes more “clutch” shots.
- 
-##### *LeBron James:*
-Standing at 6’8 tall and weighing 250 lbs of solid muscle, LeBron James has received the nickname “King James” for a reason. During the 2014-2015 season he finished third in the most valuable player race and averaged 25.3 points, 7.4 assists, and shot 53.5% from the field. With his athleticism we believed that he was able to reduce both the shot distance and closet defender distance variables. Due to his commanding presence on the court, we hypothesized that he shot many of the last minute and game-winning shots. Thus, we believe that he has higher probability of making these “clutch” shots.
- 
-##### *Tim Duncan:*
-Tim Duncan is undeniably one of the best players to ever play the game of basketball. As a future hall of famer, has his a history of being called a “clutch” player. He has been knowingly to be a highly productive player in the last 5 minutes of each game. Standing at almost 7 feet tall we hypothesized that many of his shots were  two point field goals, as it would be more likely for him to score points close to the basket with ease. With closer shots we believed the variables of Touch_Time and Shot_Dist would be low. These lower variables would result in him taking higher probability shots. Thus, increasing the overall probability of him making the “clutch” shots. 
-
-
 #### Analysis Process:
 The shot dataset we used was extracted from Kaggle. **The data consisted of 21 columns and 128,070 rows.** Our first task was to clean the data. We first removed any attributes that were not relevant to our project, such as the variable MATCHUP, which contained the date the game took place. After removing these irrelevant attributes, our original 21 columns was down to 13. Our dependent variable was the FGM variable, which contained the value 1 for a made shot, or 0 for a missed shot. Our independent variables were: FINAL_MARGIN (the difference in the final game score), PERIOD (which quarter of the game), GAME_CLOCK (time in the quarter when the shot took place), SHOT_CLOCK (time on clock when shot took place), DRIBBLES (number of dribbles), TOUCH_TIME (length of time player touched ball), SHOT_DIST (how far away the shot was taken from the basket), PTS_TYPE (a two or three pointer), CLOSEST_DEFENDER (who was defending), CLOSE_DEF_DIST (distance that the defender was from the player), and player_name (name of the player who took the shot). With the FGM variable being our Y, it was moved to the 1st column position in R. 
 
